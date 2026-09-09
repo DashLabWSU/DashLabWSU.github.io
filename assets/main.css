@@ -778,6 +778,12 @@ a:hover {
   color: #ffffff;
 }
 
+.button-primary:hover,
+.button-primary:focus-visible {
+  color: #ffffff;
+  background: var(--dash-slate);
+}
+
 .button-secondary {
   border: 1px solid var(--dash-line);
   background: rgba(255, 255, 255, 0.9);
@@ -803,12 +809,12 @@ a:hover {
 
 .info-grid,
 .detail-grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
 }
 
 .card-grid,
 .people-grid {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
 }
 
 .info-card,
@@ -873,12 +879,51 @@ a:hover {
   border-bottom: 1px solid var(--dash-line);
 }
 
+.publication-list {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.publication-item {
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--dash-line);
+}
+
+.publication-item h2 {
+  margin-bottom: 0.4rem;
+  font-size: 1.35rem;
+}
+
+.publication-authors,
+.publication-venue {
+  margin-bottom: 0.45rem;
+}
+
+.publication-authors {
+  font-weight: 600;
+}
+
+.publication-empty h2 {
+  font-size: 1.25rem;
+}
+
 .site-footer {
   border-top: 1px solid var(--dash-line);
   background: #f8fafb;
 }
 
 @media screen and (max-width: 600px) {
+  .site-nav .nav-trigger {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+  .site-nav .nav-trigger:focus-visible + label {
+    outline: 2px solid var(--dash-navy);
+    outline-offset: 2px;
+  }
   .site-logo {
     width: 42px;
     height: 42px;
